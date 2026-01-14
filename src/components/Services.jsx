@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   FaBuilding,
   FaCloud,
@@ -53,67 +53,80 @@ const services = [
   },
 ];
 
-// ✅ duplicate for infinite loop
-const loopedServices = [...services, ...services];
+const ITEMS_PER_PAGE = 4;
 
 const Services = () => {
-  const [current, setCurrent] = useState(0);
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(services.length / ITEMS_PER_PAGE);
 
-  // auto slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => prev + 1);
-    }, 2000);
+  const startIndex = page * ITEMS_PER_PAGE;
+  const visibleItems = services.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
 
-    return () => clearInterval(interval);
-  }, []);
+  const prevPage = () => {
+    setPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  };
 
-  // silent reset (NO visual jump)
-  useEffect(() => {
-    if (current === services.length) {
-      setTimeout(() => {
-        setCurrent(0);
-      }, 700); // must match transition duration
-    }
-  }, [current]);
+  const nextPage = () => {
+    setPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+  };
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h3 className="text-4xl text-gray-700 font-sans font-bold text-center mb-10">
+        
+        {/* Heading */}
+        <h3 className="text-4xl font-bold text-center text-gray-800 mb-4">
           Our Company's Services
-          
         </h3>
-       
 
-        {/* Slider */}
-        <div className="relative">
-          <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{
-              transform: `translateX(-${current * 100}%)`,
-            }}
+        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+          End-to-end IT infrastructure and digital solutions designed to
+          empower modern businesses and enterprises.
+        </p>
+
+        {/* Controls + Cards */}
+        <div className="flex items-center gap-6">
+          
+          {/* Prev Button */}
+          <button
+            onClick={prevPage}
+            className="w-12 h-12 rounded-full border-2 bg-pink-50 border-red-600 font-bold text-red-600 hover:bg-red-600 hover:text-white transition flex-shrink-0"
           >
-            {loopedServices.map((item, index) => (
-              <div key={index} className="w-full px-4">
-                <div className="h-70 w-70 bg-linear-to-r from-red-100 to-pink-100 rounded-2xl p-10 text-center shadow-md hover:shadow-xl transition-shadow">
-                  <div className="flex justify-center mb-6">
-                    <div className="text-red-600 text-5xl">
-                      {item.icon}
-                    </div>
-                  </div>
+            ‹
+          </button>
 
-                  <h4 className="text-xl font-semibold text-red-700 mb-3">
-                    {item.title}
-                  </h4>
-
-                  <p className="text-gray-700 text-sm">
-                    {item.desc}
-                  </p>
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 flex-1">
+            {visibleItems.map((item, index) => (
+              <div
+                key={index}
+                className="bg-linear-to-r from-red-100 to-pink-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center"
+              >
+                <div className="text-red-600 text-4xl mb-4 flex justify-center">
+                  {item.icon}
                 </div>
+
+                <h4 className="text-lg font-semibold text-red-700 mb-2">
+                  {item.title}
+                </h4>
+
+                <p className="text-gray-700 text-sm">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
+
+          {/* Next Button */}
+          <button
+            onClick={nextPage}
+            className="w-12 h-12 rounded-full border border-red-500 text-red-600 hover:bg-red-600 hover:text-white transition flex-shrink-0"
+          >
+            ›
+          </button>
         </div>
       </div>
     </section>
