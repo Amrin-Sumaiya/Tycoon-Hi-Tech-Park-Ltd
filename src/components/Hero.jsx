@@ -1,27 +1,46 @@
-import React from 'react'
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+
+import hero1 from "../assets/home1.png";
+import hero2 from "../assets/home2.png";
 
 const Hero = () => {
   return (
-    <section className="bg-linear-to-r from-red-100 to-pink-100 text-white">
-      <div className="max-w-7xl mx-auto px-4 py-24 text-center">
-        <h2 className="text-4xl md:text-5xl text-gray-600 font-bold mb-4">
-          Smart Business Starts Here
-        </h2>
-        <p className="text-lg md:text-xl mb-8 text-black">
-          IT-enabled commercial spaces & enterprise solutions
-        </p>
+    <section id="home" className="bg-gray-50 py-10">
+      <div className="max-w-7xl mx-auto px-4 flex justify-center">
+        <div className="w-full border rounded-lg overflow-hidden shadow-sm">
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 1000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            slidesPerView={1}
+          >
+            <SwiperSlide>
+              <img
+                src={hero1}
+                alt="Hero Slide 1"
+                className="w-full h-auto object-cover"
+              />
+            </SwiperSlide>
 
-        <div className="flex justify-center gap-4 flex-wrap">
-          <button className="bg-white text-red-400 px-6 py-3 rounded font-semibold hover:bg-gray-200 transition">
-            Explore Solutions
-          </button>
-          <button className="border border-b-pink-300 bg-white font-bold  text-red-400 px-6 py-3 rounded hover:bg-white hover:text-blue-700 transition">
-            Contact Sales
-          </button>
+            <SwiperSlide>
+              <img
+                src={hero2}
+                alt="Hero Slide 2"
+                className="w-full h-auto object-cover"
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

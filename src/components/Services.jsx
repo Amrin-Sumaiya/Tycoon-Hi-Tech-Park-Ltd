@@ -1,133 +1,152 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  FaBuilding,
-  FaCloud,
-  FaNetworkWired,
-  FaHeadset,
-  FaShieldAlt,
-  FaServer,
-  FaLightbulb,
-  FaUsersCog,
+  FaSnowflake,
+  FaFire,
+  FaTv,
+  FaBlender,
+  FaClock,
+  FaCogs,
+  FaFan,
+  FaUtensils,
 } from "react-icons/fa";
+
+// Import your images from the assets folder
+import Img1 from "../assets/bot1.jpeg"; // 494x500
+import Img2 from "../assets/bot2.jpeg"; // 386x220
+import Img3 from "../assets/bot3.jpeg"; // 189x260
+import Img4 from "../assets/bot4.jpeg"; // 189x260
+import Img5 from "../assets/bot5.jpeg"; // 288x489
 
 const services = [
   {
-    title: "IT Office Spaces",
-    desc: "Modern, scalable & secure workspaces",
-    icon: <FaBuilding />,
+    title: "Top-quality Refrigerators",
+    desc: "Efficient, durable refrigerators designed for modern households.",
+    icon: <FaSnowflake />,
   },
   {
-    title: "Digital Solutions",
-    desc: "Custom software & cloud services",
-    icon: <FaCloud />,
+    title: "Efficient Microwave Ovens",
+    desc: "Quick and reliable cooking solutions for every kitchen.",
+    icon: <FaFire />,
   },
   {
-    title: "Smart Infrastructure",
-    desc: "High-speed connectivity & automation",
-    icon: <FaNetworkWired />,
+    title: "Stylish LED Televisions",
+    desc: "High-definition TVs with sleek design and smart features.",
+    icon: <FaTv />,
   },
   {
-    title: "Enterprise Support",
-    desc: "24/7 technical & operational support",
-    icon: <FaHeadset />,
+    title: "Durable Rice Cookers",
+    desc: "Precision cooking for perfect rice every time.",
+    icon: <FaClock />,
   },
   {
-    title: "Cyber Security",
-    desc: "Enterprise-grade security & data protection",
-    icon: <FaShieldAlt />,
+    title: "Precision-engineered Mixer Grinders",
+    desc: "Powerful, safe, and user-friendly kitchen appliances.",
+    icon: <FaBlender />,
   },
   {
-    title: "Data Center Services",
-    desc: "High-availability & secure server hosting",
-    icon: <FaServer />,
+    title: "Safe and Reliable Pressure Cookers",
+    desc: "Energy-efficient cooking with modern safety features.",
+    icon: <FaCogs />,
   },
   {
-    title: "Innovation Lab",
-    desc: "Research, prototyping & emerging tech",
-    icon: <FaLightbulb />,
+    title: "Compact Kitchen Appliances",
+    desc: "Space-saving and efficient devices for everyday use.",
+    icon: <FaUtensils />,
   },
   {
-    title: "Business Enablement",
-    desc: "HR, operations & enterprise consultancy",
-    icon: <FaUsersCog />,
+    title: "Tycoon Brand Fans",
+    desc: "High-performance fans to keep your home cool and comfortable.",
+    icon: <FaFan />,
   },
 ];
 
-const ITEMS_PER_PAGE = 4;
-
 const Services = () => {
-  const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(services.length / ITEMS_PER_PAGE);
-
-  const startIndex = page * ITEMS_PER_PAGE;
-  const visibleItems = services.slice(
-    startIndex,
-    startIndex + ITEMS_PER_PAGE
-  );
-
-  const prevPage = () => {
-    setPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-  };
-
-  const nextPage = () => {
-    setPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
-  };
-
   return (
-    <section className="py-24 bg-white">
+    <section id="productportfolio" className="py-24 bg-pink-50">
       <div className="max-w-7xl mx-auto px-4">
-        
         {/* Heading */}
         <h3 className="text-4xl font-bold text-center text-gray-800 mb-4">
-          Our Company's Services
+          Product <span className="text-red-700">Portfolio</span>
         </h3>
-
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-          End-to-end IT infrastructure and digital solutions designed to
-          empower modern businesses and enterprises.
+          We offer a diverse range of home and consumer electronics designed to
+          meet modern household needs. Each product is developed with a focus on
+          performance, safety, energy efficiency, and user-friendly design.
         </p>
 
-        {/* Controls + Cards */}
-        <div className="flex items-center gap-6">
-          
-          {/* Prev Button */}
-          <button
-            onClick={prevPage}
-            className="w-12 h-12 rounded-full border-2 bg-pink-50 border-red-600 font-bold text-red-600 hover:bg-red-600 hover:text-white transition flex-shrink-0"
-          >
-            ‹
-          </button>
-
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 flex-1">
-            {visibleItems.map((item, index) => (
-              <div
-                key={index}
-                className="bg-linear-to-r from-red-100 to-pink-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center"
-              >
-                <div className="text-red-600 text-4xl mb-4 flex justify-center">
-                  {item.icon}
-                </div>
-
-                <h4 className="text-lg font-semibold text-red-700 mb-2">
-                  {item.title}
-                </h4>
-
-                <p className="text-gray-700 text-sm">
-                  {item.desc}
-                </p>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {services.map((item, index) => (
+            <div
+              key={index}
+              className="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 text-center flex flex-col"
+            >
+              <div className="text-red-700 text-4xl mb-4 flex justify-center">
+                {item.icon}
               </div>
-            ))}
-          </div>
 
-          {/* Next Button */}
-          <button
-            onClick={nextPage}
-            className="w-12 h-12 rounded-full border border-red-500 text-red-600 hover:bg-red-600 hover:text-white transition flex-shrink-0"
-          >
-            ›
-          </button>
+              <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                {item.title}
+              </h4>
+
+              <p className="text-gray-600 text-sm mb-4 flex-grow">{item.desc}</p>
+
+              <button className="mt-auto bg-red-700 text-white py-2 px-4 rounded hover:bg-red-600 transition">
+                Learn More
+              </button>
+            </div>
+          ))}
         </div>
+
+        {/* Image Section Below */}
+{/* Image Section Below */}
+<div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-[6px]">
+  
+  {/* LEFT – Tall Image */}
+  <div className="h-full">
+    <img
+      src={Img1}
+      alt="Mixer Grinder"
+      className="w-full h-full object-cover rounded-md aspect-[4/5]"
+    />
+  </div>
+
+  {/* MIDDLE – One top, two bottom */}
+  <div className="grid grid-rows-[auto_1fr] gap-[6px]">
+    
+    {/* Top Wide Image */}
+    <img
+      src={Img2}
+      alt="Product Range"
+      className="w-full object-cover rounded-md aspect-[16/9]"
+    />
+
+    {/* Bottom Two Images */}
+    <div className="grid grid-cols-2 gap-[6px]">
+      <img
+        src={Img3}
+        alt="Room Heater"
+        className="w-full object-cover rounded-md aspect-[3/4]"
+      />
+      <img
+        src={Img4}
+        alt="Rice Cooker"
+        className="w-full object-cover rounded-md aspect-[3/4]"
+      />
+    </div>
+  </div>
+
+  {/* RIGHT – Tall Image */}
+  <div className="h-full">
+    <img
+      src={Img5}
+      alt="Smart TV"
+      className="w-full h-full object-cover rounded-md aspect-[4/5]"
+    />
+  </div>
+
+</div>
+
       </div>
     </section>
   );
