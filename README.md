@@ -5,7 +5,7 @@ Official website for **Tycoon Hi-Tech Park Ltd**, a Bangladesh-based electronics
 ---
 
 ## 🚀 Live Preview
-🔗 https://your-live-site-link.com
+🔗 [https://your-live-site-link.com](https://tycoon-hi-tech-park-ltd.vercel.app/)
 
 ---
 
