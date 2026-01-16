@@ -89,7 +89,7 @@ const Services = () => {
                 {item.title}
               </h4>
 
-              <p className="text-gray-600 text-sm mb-4 flex-grow">{item.desc}</p>
+              <p className="text-gray-600 text-sm mb-4 grow">{item.desc}</p>
 
               <button className="mt-auto bg-red-700 text-white py-2 px-4 rounded hover:bg-red-600 transition">
                 Learn More
@@ -100,38 +100,38 @@ const Services = () => {
 
         {/* Image Section Below */}
 {/* Image Section Below */}
-<div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-[6px]">
+<div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-1.5">
   
   {/* LEFT – Tall Image */}
   <div className="h-full">
     <img
       src={Img1}
       alt="Mixer Grinder"
-      className="w-full h-full object-cover rounded-md aspect-[4/5]"
+      className="w-full h-full object-cover rounded-md aspect-4/5"
     />
   </div>
 
   {/* MIDDLE – One top, two bottom */}
-  <div className="grid grid-rows-[auto_1fr] gap-[6px]">
+  <div className="grid grid-rows-[auto_1fr] gap-1.5">
     
     {/* Top Wide Image */}
     <img
       src={Img2}
       alt="Product Range"
-      className="w-full object-cover rounded-md aspect-[16/9]"
+      className="w-full object-cover rounded-md aspect-video"
     />
 
     {/* Bottom Two Images */}
-    <div className="grid grid-cols-2 gap-[6px]">
+    <div className="grid grid-cols-2 gap-1.5">
       <img
         src={Img3}
         alt="Room Heater"
-        className="w-full object-cover rounded-md aspect-[3/4]"
+        className="w-full object-cover rounded-md aspect-3/4"
       />
       <img
         src={Img4}
         alt="Rice Cooker"
-        className="w-full object-cover rounded-md aspect-[3/4]"
+        className="w-full object-cover rounded-md aspect-3/4"
       />
     </div>
   </div>
@@ -141,7 +141,7 @@ const Services = () => {
     <img
       src={Img5}
       alt="Smart TV"
-      className="w-full h-full object-cover rounded-md aspect-[4/5]"
+      className="w-full h-full object-cover rounded-md aspect-4/5"
     />
   </div>
 
