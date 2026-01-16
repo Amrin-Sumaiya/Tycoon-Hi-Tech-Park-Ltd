@@ -1,18 +1,61 @@
-# React + Vite
+# Tycoon Hi-Tech Park Ltd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official website for **Tycoon Hi-Tech Park Ltd**, a Bangladesh-based electronics and home appliances manufacturing company, built using **React, Vite, and Tailwind CSS**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Preview
+🔗 https://your-live-site-link.com
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 📌 Project Overview
 
-Note: This will impact Vite dev & build performances.
+Tycoon Hi-Tech Park Ltd is dedicated to delivering high-quality, innovative consumer electronics and home appliances under the **“Made in Bangladesh”** initiative.
 
-## Expanding the ESLint configuration
+This website showcases:
+- Company information
+- Product portfolio
+- Why choose Tycoon
+- Testimonials & future outlook
+- Contact and engagement details
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧱 Tech Stack
+
+- **Frontend:** React.js (Vite)
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons
+- **Scrolling:** react-scroll
+- **Build Tool:** Vite
+- **Version Control:** Git & GitHub
+
+---
+
+## 📂 Project Folder Structure
+
+```bash
+src/
+├── assets/                # Images, logos, banners
+│   ├── logo.png
+│   ├── fan1.jpeg
+│   ├── newarrive.jpeg
+│   └── ...
+│
+├── components/            # Reusable UI components
+│   ├── Navbar.jsx
+│   ├── AboutUs.jsx
+│   ├── Products.jsx
+│   ├── Services.jsx
+│   ├── WhyChooseUs.jsx
+│   ├── CTA.jsx
+│   └── Footer.jsx
+│
+├── pages/                 # Page-level components (if expanded later)
+│   └── Home.jsx
+│
+├── App.jsx                # Root component
+├── main.jsx               # App entry point
+├── index.css              # Tailwind base styles
+└── vite.config.js
